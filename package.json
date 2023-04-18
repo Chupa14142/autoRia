@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "cypress": "^12.10.0"
+  },
+  "scripts": {
+    "clean:phones": "rm -R -f parsedData && mkdir parsedData && echo '[]' > parsedData/phones.json",
+    "pretest": "npm run clean:phones",
+    "test": "npx cypress run",
+    "parsePhone": "npm run pretest && npm run test"
+  }
+}
