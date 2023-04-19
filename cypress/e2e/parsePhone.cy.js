@@ -4,9 +4,12 @@ describe("auto ria phone parsing", ()=> {
 
     cy.fixture('urls.json').each(url => {
       const urlAuto = url
+
+      cy.intercept('GET', urlAuto).as('getAuto')
       cy.intercept('GET', 'https://auto.ria.com/users/phones/**').as('getPhone')
 
       cy.visit(urlAuto)
+      cy.wait('@getAuto')
       cy.get('.phones_item span.bold').first().click()
 
       cy.wait(3000)

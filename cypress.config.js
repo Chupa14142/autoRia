@@ -8,6 +8,7 @@ module.exports = defineConfig({
     baseUrl: 'https://auto.ria.com/uk/',
     viewportWidth: 1920,
     viewportHeight: 800,
+    video: false,
     retries: {
           // Configure retry attempts for `cypress run`. Default is 0
           "runMode": 2,
